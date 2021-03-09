@@ -55,7 +55,7 @@ def answer_raw_sentence(sentence, all_words, intents, tags, mdl, device):
             if tag == intent["tag"]:
                 return random.choice(intent['responses'])
     else:
-        return "Im not trained to understand that yet.. please try something else!"
+        return "Im not ready to understand that yet.. please try something else!"
 
 
 @app.route('/')
@@ -70,7 +70,7 @@ def add_msg_and_predict():
     global msgs
     sentence = request.form['content']
     if not sentence:
-        return render_template('list.html', msgs=msgs)
+        return render_template('home.html', msgs=msgs)
     msgs += [Markup(f'<p class="pother">{sentence}</p>')]
 
     answer = answer_raw_sentence(sentence, all_words, intents, tags, model, device)
