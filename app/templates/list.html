@@ -1,0 +1,11 @@
+<ul>
+    {% for task in tasks %}
+        <li>
+            <p>{{ task }}</p>
+        </li>
+    {% endfor %}
+</ul>    
+<form action="/task" method="post">
+    <p><input type="text" name="content"></p>
+    <input type="submit" value="Add task">
+ </form>

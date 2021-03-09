@@ -49,7 +49,9 @@
         "Do you take credit cards?",
         "Do you accept Mastercard?",
         "Can I pay with Paypal?",
-        "Are you cash only?"
+        "Are you cash only?",
+        "What are the payment methods?",
+        "How can I pay"
       ],
       "responses": [
         "We accept VISA, Mastercard and Paypal",
