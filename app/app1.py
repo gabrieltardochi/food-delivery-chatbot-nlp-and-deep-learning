@@ -1,24 +1,25 @@
-from flask import Flask, request
-from flask import render_template
-from flask import redirect
+from flask import Flask, request, Markup, render_template, redirect
 
 app = Flask(__name__)
-tasks = ["oioi",'oii']
+msgs = []
 
 @app.route('/')
 def tasks_list():
-    return render_template('list.html', tasks=tasks)
+    global msgs
+    msgs = []
+    return render_template('list.html', msgs=msgs)
 
 
-@app.route('/task', methods=['POST'])
+@app.route('/chatting', methods=['POST'])
 def add_task():
-    global tasks
+    global msgs
     content = request.form['content']
     if not content:
-        return 'Error'
-    tasks += [content]
-    return redirect('/')
-
+        return render_template('list.html', msgs=msgs)
+        #return redirect('/')
+    msgs += [Markup(f'<p class="p-custom">{content}</p>')]
+    #return redirect('/')
+    return render_template('list.html', msgs=msgs)
 
 if __name__ == '__main__':
     app.run()
