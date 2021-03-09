@@ -39,8 +39,8 @@
         "What do you sell?"
       ],
       "responses": [
-        "We sell coffee and tea",
-        "We have coffee and tea"
+        "We sell chocolate pizza and milkshakes",
+        "We have chocolate pizza and milkshakes"
       ]
     },
     {
@@ -64,8 +64,8 @@
         "When do I get my delivery?"
       ],
       "responses": [
-        "Delivery takes 2-4 days",
-        "Shipping takes 2-4 days"
+        "Delivery takes 25-45 minutes",
+        "Shipping takes 25-45 minutes"
       ]
     },
     {
