@@ -1,5 +1,5 @@
 # Food Delivery ChatBot demo :robot::thought_balloon: 
-**Author**: Gabriel Tardochi Salles [![github](https://cloud.githubusercontent.com/assets/17016297/18839843/0e06a67a-83d2-11e6-993a-b35a182500e0.png)][1][![facebook](https://cloud.githubusercontent.com/assets/17016297/18839836/0a06deb4-83d2-11e6-8078-1d0974af0f63.png)][2][![linkedin](https://cloud.githubusercontent.com/assets/17016297/18839848/0fc7e74e-83d2-11e6-8c6a-277fc9d6e067.png)][3] :wave:  
+**Author**: Gabriel Tardochi Salles [![github](https://img.flaticon.com/icons/png/512/174/174857.png?size=40x35f&pad=10,10,10,10&ext=png&bg=FFFFFFFF)][1] :wave:  
 Chat with it on https://nlp-food-delivery-chatbot.herokuapp.com/ :wave::robot::thought_balloon:  
 Tob the Bot is a **NLP Deep Neural Network** built and trained(yet on very little data) on **PyTorch** :fire:  
 **Deployment**: WebApp coded with **Flask** deployed on **Heroku** :rocket:
