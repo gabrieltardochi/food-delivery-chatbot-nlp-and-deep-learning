@@ -9,15 +9,15 @@ from flask import Flask, request, Markup, render_template, redirect
 app = Flask(__name__)
 msgs = []
 
-# loading model and useful data
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# loading model (on cpu for heroku) and useful data
+device = torch.device('cpu')
 
 with open('data/intents.json', 'r') as json_data:
     intents = json.load(json_data)
 
 mdl_path = f"model/mdl.pth"
 
-mdl_dict = torch.load(mdl_path)
+mdl_dict = torch.load(mdl_path, map_location=device)
 
 input_size = mdl_dict["input_size"]
 hidden_size = mdl_dict["hidden_size"]
