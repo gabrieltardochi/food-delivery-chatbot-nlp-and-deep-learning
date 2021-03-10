@@ -1,6 +1,6 @@
 # Food Delivery ChatBot demo :robot::thought_balloon: 
 **Author**: Gabriel Tardochi Salles
-[<img src="https://logodix.com/logo/79569.png">](http://google.com.au/)
+[<img src="https://logodix.com/logo/79569.png" width="20" height="20">](www.linkedin.com/in/gabriel-tardochi-salles-a1653a193)
 [![alt text][2.1]][2]
 [![alt text][3.1]][3]
 :wave:  
