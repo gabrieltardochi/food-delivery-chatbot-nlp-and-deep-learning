@@ -80,4 +80,4 @@ def add_msg_and_predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
