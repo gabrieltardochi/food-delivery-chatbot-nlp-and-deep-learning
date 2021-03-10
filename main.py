@@ -1,13 +1,14 @@
 import random
+import time
 import json
 import torch
 from src.model import NeuralNet
 from src.utils import fix_sentence, bag_of_words, tokenize, stem
-from flask import Flask, request, Markup, render_template, redirect
+from flask import Flask, request, Markup, render_template, session
 
 
 app = Flask(__name__)
-msgs = []
+app.secret_key = "my_secret_key"
 
 # loading model (on cpu for heroku) and useful data
 device = torch.device('cpu')
@@ -60,23 +61,23 @@ def answer_raw_sentence(sentence, all_words, intents, tags, mdl, device):
 
 @app.route('/')
 def clean_chat():
-    global msgs
-    msgs = [Markup(f'<p class="pbot">Hi! I am Tob, a demo of a food delivery ChatBot. Come chat with me!</p>')]
-    return render_template('home.html', msgs=msgs)
+    session["msgs"] = [Markup(f'<p class="pbot">Hi! I am Tob, a demo of a food delivery ChatBot. Come chat with me!</p>')]
+    time.sleep(1)
+    return render_template('home.html', msgs=session["msgs"])
 
 
 @app.route('/chatting', methods=['POST'])
 def add_msg_and_predict():
-    global msgs
-    sentence = request.form['content']
-    if not sentence:
-        return render_template('home.html', msgs=msgs)
-    msgs += [Markup(f'<p class="pother">{sentence}</p>')]
+    session["this_sentence"] = request.form['content']
+    if not session["this_sentence"]:
+        time.sleep(1)
+        return render_template('home.html', msgs=session["msgs"])
+    session["msgs"] += [Markup(f'<p class="pother">{session["this_sentence"]}</p>')]
 
-    answer = answer_raw_sentence(sentence, all_words, intents, tags, model, device)
-    msgs += [Markup(f'<p class="pbot">{answer}</p>')]
-    
-    return render_template('home.html', msgs=msgs)
+    session["this_answer"] = answer_raw_sentence(session["this_sentence"], all_words, intents, tags, model, device)
+    session["msgs"] += [Markup(f'<p class="pbot">{session["this_answer"]}</p>')]
+    time.sleep(1)
+    return render_template('home.html', msgs=session["msgs"])
 
 
 if __name__ == '__main__':
