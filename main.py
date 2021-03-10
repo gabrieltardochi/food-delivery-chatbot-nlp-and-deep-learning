@@ -51,7 +51,8 @@ def answer_raw_sentence(sentence, all_words, intents, tags, mdl, device):
 
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
-    if prob.item() > 0.6:
+    confidence_th = 0.75
+    if prob.item() > confidence_th:
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 return random.choice(intent['responses'])
@@ -62,7 +63,7 @@ def answer_raw_sentence(sentence, all_words, intents, tags, mdl, device):
 @app.route('/')
 def clean_chat():
     session["msgs"] = [Markup(f'<p class="pbot">Hi! I am Tob, a demo of a food delivery ChatBot. Come chat with me!</p>')]
-    time.sleep(1)
+    
     return render_template('home.html', msgs=session["msgs"])
 
 
@@ -70,13 +71,13 @@ def clean_chat():
 def add_msg_and_predict():
     session["this_sentence"] = request.form['content']
     if not session["this_sentence"]:
-        time.sleep(1)
+        
         return render_template('home.html', msgs=session["msgs"])
     session["msgs"] += [Markup(f'<p class="pother">{session["this_sentence"]}</p>')]
 
     session["this_answer"] = answer_raw_sentence(session["this_sentence"], all_words, intents, tags, model, device)
     session["msgs"] += [Markup(f'<p class="pbot">{session["this_answer"]}</p>')]
-    time.sleep(1)
+    
     return render_template('home.html', msgs=session["msgs"])
 
 
