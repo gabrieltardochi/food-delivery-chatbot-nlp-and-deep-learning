@@ -5,4 +5,6 @@
 [<img src="https://cdn4.iconfinder.com/data/icons/social-media-circle-7/512/Medium_circle-512.png" width="25" height="25">](https://ga-tardochisalles.medium.com/)  
 Chat with it on https://nlp-food-delivery-chatbot.herokuapp.com/ :wave::robot::thought_balloon:  
 Tob the Bot is a **NLP Deep Neural Network** built and trained(yet on very little data) on **PyTorch** :fire:  
-**Deployment**: WebApp coded with **Flask** deployed on **Heroku** :rocket:
+**Deployment**: WebApp coded with **Flask** deployed on **Heroku** :rocket:  
+Inspired by: https://www.youtube.com/playlist?list=PLqnslRFeH2UrFW4AUgn-eY37qOAWQpJyg
+
