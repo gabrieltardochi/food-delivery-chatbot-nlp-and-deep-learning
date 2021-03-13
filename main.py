@@ -63,7 +63,7 @@ def answer_raw_sentence(sentence, all_words, intents, tags, mdl, device):
 def clean_chat():
     session["msgs"] = [
         Markup(f'<p class="pbot">Hi! I am Tob, a simple demo of a food delivery ChatBot. Come chat with me!</p>'),
-        Markup(f'<p class="pbot">For now I can answer questions related to: greetings, goodbyes, our items, payment methods, delivery and jokes.</p>')
+        Markup(f'<p class="pbot">For now I can reply to questions/sentences related to: greetings, goodbyes, our items, payment methods, delivery and jokes.</p>')
     ]
     return render_template('home.html', msgs=session["msgs"])
 
