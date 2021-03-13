@@ -24,13 +24,10 @@ for intent in intents['intents']:
     for pattern in intent['patterns']:
         # string treatment
         pattern = fix_sentence(pattern)
-        # tokenize each word in the sentence
+        # tokenize/stem each word in the sentence
         w = tokenize(pattern)
-        # stem each word
         w = [stem(word) for word in w]
-        # add to our words list
         all_words.extend(w)
-        # add to xy pair
         xy.append((w, tag))
 
 # remove duplicates and sort
@@ -45,10 +42,8 @@ print(len(all_words), "unique stemmed words:", all_words)
 X_train = []
 y_train = []
 for (pattern_sentence, tag) in xy:
-    # X: bag of words for each pattern_sentence
     bag = bag_of_words(pattern_sentence, all_words)
     X_train.append(bag)
-    # y: PyTorch CrossEntropyLoss needs only class labels, not one-hot
     label = tags.index(tag)
     y_train.append(label)
 
@@ -65,7 +60,6 @@ output_size = len(tags)
 print(input_size, output_size)
 
 class ChatDataset(Dataset):
-
     def __init__(self):
         self.n_samples = len(X_train)
         self.x_data = X_train
