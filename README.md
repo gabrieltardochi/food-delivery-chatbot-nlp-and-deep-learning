@@ -6,5 +6,5 @@
 Chat with it on https://nlp-food-delivery-chatbot.herokuapp.com/ :wave::robot::thought_balloon:  
 Tob the Bot is a **NLP Deep Neural Network** built and trained(yet on very little data) on **PyTorch** :fire:  
 **Deployment**: WebApp coded with **Flask** deployed on **Heroku** :rocket:  
-Inspired by the chatbot with pytorch video series by Python Engineer on YouTube.  
-<img src="https://imgur.com/a/iU4mh8x"/>
+<img src="https://i.imgur.com/f1W54Bi.png"/>  
+Inspired by the chatbot with pytorch video series by Python Engineer on YouTube.
